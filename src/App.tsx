@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { RootState } from './store';
 import { setProducts } from './store/slice/productSlice';
 import { getProduct } from './api';
-import { Cart } from './models';
+import './index.css'
+import { Route, Routes } from 'react-router-dom';
+import Header from './components/Header/Header';
+import MainPage from './pages/MainPage';
+import CatalogPage from './pages/CatalogPage';
 
 function App() {
   const dispatch = useDispatch()
@@ -26,13 +28,13 @@ function App() {
   
 
   return (
-    <div className="App">
-      {data?.products.map(elem => (
-        elem.products.map(product => (
-          <h1 key={product.id}>{product.id}</h1>
-        ))
-      ))}
-    </div>
+    <>
+    <Header/>
+      <Routes>
+        <Route path='/' element={<MainPage/>}/>
+        <Route path='/catalog' element={<CatalogPage/>}/>
+      </Routes>
+    </>
   );
 }
 

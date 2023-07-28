@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+    justify-content: space-between;
+    padding: 15px 10px;
+    align-items: center;
+}
+
+
+.nav {
+    display: flex;
+    gap: 100px;
+}
+
+.nav__link{
+    color: black;
+}
+

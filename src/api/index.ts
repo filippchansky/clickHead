@@ -1,9 +1,5 @@
 import axios from "axios";
-import { Cart, IResponse } from "../models";
-import { setProducts } from "../store/slice/productSlice";
-import { useDispatch } from "react-redux";
-import { Dispatch } from "react";
-import { AnyAction } from "@reduxjs/toolkit";
+import {IResponse } from "../models";
 
 export const getProduct = async (setData: Function) => {
 

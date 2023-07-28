@@ -1,0 +1,13 @@
+.catalog__container {
+    margin-top: 100px;
+}
+
+.catalog {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-around;
+}
+
+

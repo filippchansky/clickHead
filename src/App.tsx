@@ -1,24 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { useDispatch, useSelector } from 'react-redux/es/exports';
+import { RootState } from './store';
+import { setProducts } from './store/slice/productSlice';
+import { getProduct } from './api';
+import { Cart } from './models';
 
 function App() {
+  const dispatch = useDispatch()
+  const [response, setResponse] = useState([])
+
+  useEffect(() => {
+    getProduct(setResponse)
+  }, [])
+
+  useEffect(() => {
+    if (response.length > 0) {
+      dispatch(setProducts(response))
+    }
+  }, [response, dispatch])
+  const data = useSelector((state:RootState) => state.product)
+
+  console.log(data.products)
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {data?.products.map(elem => (
+        elem.products.map(product => (
+          <h1 key={product.id}>{product.id}</h1>
+        ))
+      ))}
     </div>
   );
 }

@@ -4,9 +4,9 @@
     color: white;
     border-radius: 10px;
     transition: .5s;
+    font-size: 13px;
 }
 
 .btn:hover {
     background-color: rgb(177, 100, 248);
-    
 }

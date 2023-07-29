@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
 import MainPage from './pages/MainPage';
 import CatalogPage from './pages/CatalogPage';
+import BasketPage from './pages/BasketPage';
 
 function App() {
   const dispatch = useDispatch()
@@ -24,7 +25,6 @@ function App() {
   }, [response, dispatch])
   const data = useSelector((state:RootState) => state.product)
 
-  console.log(data.products)
   
 
   return (
@@ -33,6 +33,7 @@ function App() {
       <Routes>
         <Route path='/' element={<MainPage/>}/>
         <Route path='/catalog' element={<CatalogPage/>}/>
+        <Route path='/basket' element={<BasketPage/>}/>
       </Routes>
     </>
   );

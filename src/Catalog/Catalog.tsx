@@ -11,7 +11,6 @@ const Catalog: React.FC<CatalogProps> = ({}) => {
   const data = useSelector((state: RootState) => state.product);
   const productArr = useSelector((state: RootState) => state.productArr.productArr)
   console.log(productArr)
-  // const [productArr, setProductArr] = useState<number[]>([]);
 
   return (
     <section className={`${style.catalog__container} container`}>

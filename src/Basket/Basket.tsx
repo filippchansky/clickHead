@@ -14,11 +14,13 @@ const Basket: React.FC<BasketProps> = ({}) => {
   );
   const data = useSelector((state: RootState) => state.product.products);
 
-  const dataSort = data.map((elem) =>
-    elem.products.filter((prod) => productSort.includes(prod.id))
-  );
+  const dataSort = data.flatMap((elem) => elem.products.filter(item => productSort.includes(item.id)));
 
-//   console.log(data)
+  const uniqueArray = dataSort.filter(elem => elem.id!== elem.id);
+
+  console.log(uniqueArray, 'qwe')
+
+  console.log(dataSort)
 
     data.map((elem) =>
       elem.products
@@ -35,11 +37,9 @@ const Basket: React.FC<BasketProps> = ({}) => {
       <div className={style.basket}>
         <div className={style.product}>
           <h1>Товаров в корзине: {productSort.length}</h1>
-          {dataSort.map((elem) =>
-            elem.map((product) => (
-              <BasketCard key={product.id} product={product} />
-            ))
-          )}
+          {dataSort.map(product => (
+            <BasketCard key={product.id} product={product} />
+          ))}
         </div>
         <div className={style.purchase}>
           <span className={style.info}>

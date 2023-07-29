@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import OrangeBtn from "../components/UI/OrangeBtn/OrangeBtn";
+import { RootState } from "../store";
 import { addProductArr, removeProductArr } from "../store/slice/ProductArr";
 import style from "./productcard.module.css";
 
@@ -14,14 +15,13 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ id, price, title, productArr }) => {
   const [textBtn, setTextBtn] = useState("В корзину");
   const dispatch = useDispatch()
+
   
 
   const handleClick = () => {
-    if (textBtn === "В корзину") {
-      setTextBtn("Удалить из корзины");
+    if (!productArr.includes(id)) {
       dispatch(addProductArr(id))
-    } else if (textBtn === "Удалить из корзины") {
-      setTextBtn("В корзину");
+    } else if (productArr.includes(id)) {
       const index = productArr.indexOf(id)
       dispatch(removeProductArr(id))
     }
@@ -32,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, price, title, productArr 
       <img className={style.img} src="https://via.placeholder.com/150" alt="" />
       <p className={style.title}>{title}</p>
       <p className={style.price}>{price} Руб.</p>
-      <OrangeBtn clickBtn={handleClick}>{textBtn}</OrangeBtn>
+      <OrangeBtn clickBtn={handleClick}>{productArr.includes(id)? 'Удалить из корзины' : 'Добавить в корзину'}</OrangeBtn>
     </div>
   );
 };

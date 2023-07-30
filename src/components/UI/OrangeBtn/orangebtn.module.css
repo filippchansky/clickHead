@@ -10,3 +10,7 @@
 .btn:hover {
     background-color: rgb(177, 100, 248);
 }
+
+.btn.active {
+    background-color: rgb(177, 100, 248);
+}

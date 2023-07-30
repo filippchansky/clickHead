@@ -18,8 +18,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
   title,
   productArr,
 }) => {
-  const [textBtn, setTextBtn] = useState("В корзину");
-  const [localArr, setLocalArr] = useState<number[]>([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       <img className={style.img} src="https://via.placeholder.com/150" alt="" />
       <p className={style.title}>{title}</p>
       <p className={style.price}>{price} Руб.</p>
-      <OrangeBtn clickBtn={handleClick}>
+      <OrangeBtn id={id} clickBtn={handleClick}>
         {productArr.includes(id) ? "Удалить из корзины" : "Добавить в корзину"}
       </OrangeBtn>
     </div>

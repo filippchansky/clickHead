@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 interface MainPageProps {
     
 }
 
 const MainPage:React.FC<MainPageProps> = ({}) => {
+
+    useEffect(() => {
+        document.title = 'Главная'
+      },[])
 
     return (
         <div>

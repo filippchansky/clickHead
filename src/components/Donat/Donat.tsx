@@ -18,6 +18,8 @@ const Donat: React.FC<DonatProps> = ({}) => {
   const dispatch = useDispatch();
   console.log(inputUsd, 'usd');
 
+  
+
   useEffect(() => {
     localStorage.setItem("usd", JSON.stringify(usdValue));
   });

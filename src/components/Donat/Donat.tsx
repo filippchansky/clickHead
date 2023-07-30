@@ -16,7 +16,7 @@ const Donat: React.FC<DonatProps> = ({}) => {
   const [inputUsd, setInputUsd] = useState<number | string>("");
   const [active, setActive] = useState(false);
   const dispatch = useDispatch();
-  console.log(inputUsd);
+  console.log(inputUsd, 'usd');
 
   useEffect(() => {
     localStorage.setItem("usd", JSON.stringify(usdValue));
@@ -59,7 +59,7 @@ const Donat: React.FC<DonatProps> = ({}) => {
               onChange={(e) => setInputCoin(Number(e.target.value))}
               placeholder="Введите кол-во"
             />
-            <OrangeBtn clickBtn={payCoin}>Пополнить</OrangeBtn>
+            <OrangeBtn active={inputCoin === ''? true: false} clickBtn={payCoin}>Пополнить</OrangeBtn>
             <Modal active={active} setActive={setActive}>
               <h1>Ошибка, недостаточно USD</h1>
             </Modal>
@@ -74,7 +74,7 @@ const Donat: React.FC<DonatProps> = ({}) => {
               onChange={(e) => setInputUsd(Number(e.target.value))}
               placeholder="Введите кол-вой"
             />
-            <OrangeBtn clickBtn={payUsd}>Пополнить</OrangeBtn>
+            <OrangeBtn active={inputUsd === ''? true: false} clickBtn={payUsd}>Пополнить</OrangeBtn>
           </div>
         </div>
       </div>

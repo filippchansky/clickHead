@@ -35,7 +35,7 @@ const BasketCard: React.FC<BasketCardProps> = ({ product }) => {
           </span>
         </div>
         <div className={style.btn__delete}>
-          <OrangeBtn clickBtn={deleteItem}>Удалить</OrangeBtn>
+          <OrangeBtn id={product.id} clickBtn={deleteItem}>Удалить</OrangeBtn>
         </div>
       </div>
     </div>

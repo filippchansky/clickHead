@@ -1,0 +1,13 @@
+.burger {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 9999;
+    position: fixed;
+    left: -100%;
+    transition: .5s;
+}
+
+.burger.active {
+    left: 0;
+}

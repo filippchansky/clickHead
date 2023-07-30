@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
+const coinLocalStore = JSON.parse(localStorage.getItem('coin')!)
+
 const coin = createSlice({
     name: 'coin',
     initialState: {
-        coin: 0
+        coin: coinLocalStore || 0
     },
     reducers: {
         addCoin: (state, action) => {

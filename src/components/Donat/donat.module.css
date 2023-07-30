@@ -24,3 +24,9 @@
     border-bottom: 1px solid black;
     padding: 10px 0;
 }
+
+@media (max-width:950px) {
+    .content {
+        flex-direction: column;
+    }
+}

@@ -1,25 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Modal from "../components/UI/Modal/Modal";
-import OrangeBtn from "../components/UI/OrangeBtn/OrangeBtn";
-import { RootState } from "../store";
-import { addCoin } from "../store/slice/CoinSlice";
-import { addUsd, removeUsd } from "../store/slice/UsdSlice";
+import Modal from "../UI/Modal/Modal";
+import OrangeBtn from "../UI/OrangeBtn/OrangeBtn";
+import { RootState } from "../../store";
+import { addCoin } from "../../store/slice/CoinSlice";
+import { addUsd, removeUsd } from "../../store/slice/UsdSlice";
 import style from "./donat.module.css";
 
-interface DonatProps {
-  
-}
+interface DonatProps {}
 
-const Donat: React.FC<DonatProps> = ({  }) => {
-   const coinValue = useSelector((state: RootState) => state.coin.coin)
-   const usdValue = useSelector((state:RootState) => state.usd.usd)
+const Donat: React.FC<DonatProps> = ({}) => {
+  const coinValue = useSelector((state: RootState) => state.coin.coin);
+  const usdValue = useSelector((state: RootState) => state.usd.usd);
   const [inputCoin, setInputCoin] = useState<number | string>(""); // можно поменять string на undefined, но с ошибкой
   const [inputUsd, setInputUsd] = useState<number | string>("");
   const [active, setActive] = useState(false);
   const dispatch = useDispatch();
   console.log(inputUsd);
-  
+
+  useEffect(() => {
+    localStorage.setItem("usd", JSON.stringify(usdValue));
+  });
+
+  useEffect(() => {
+    localStorage.setItem("coin", JSON.stringify(coinValue));
+  });
 
   const payUsd = () => {
     dispatch(addUsd(inputUsd));
@@ -27,13 +32,13 @@ const Donat: React.FC<DonatProps> = ({  }) => {
   };
 
   const payCoin = () => {
-    console.log(typeof(inputCoin));
-    if(inputCoin <= usdValue) {
+    console.log(typeof inputCoin);
+    if (inputCoin <= usdValue) {
       dispatch(addCoin(inputCoin));
-      dispatch(removeUsd(inputCoin))
-      setInputCoin('')
-    }else {
-        setActive(true)
+      dispatch(removeUsd(inputCoin));
+      setInputCoin("");
+    } else {
+      setActive(true);
     }
   };
 

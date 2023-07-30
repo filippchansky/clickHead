@@ -5,7 +5,8 @@
 .basket {
     max-width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 10px 100px;
 }
 
 .product {
@@ -14,17 +15,21 @@
     gap: 20px;
 }
 
-
+.title {
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 30px;
+}
 
 .purchase {
-    border: 1px solid black;
-    height: 100%;
+    max-height: 120px;
     border-radius: 10px;
     display: flex;
     gap: 30px;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    box-shadow: -4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 .info {
@@ -62,4 +67,23 @@
 
 .method.active {
     box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width:950px) {
+    .basket {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .purchase {
+        order: 0;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .product{
+        order: 1;
+        align-items: center;
+    }
+    .basket {
+        padding: 10px 20px;
+    }
 }

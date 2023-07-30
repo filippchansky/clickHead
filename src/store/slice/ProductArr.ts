@@ -5,8 +5,10 @@ interface ProductArr {
   productArr: number[];
 }
 
+const savedProductArr = JSON.parse(localStorage.getItem('productArr')!) || [];
+
 const initialState: ProductArr = {
-  productArr: []
+  productArr: savedProductArr || []
 };
 
 const productArr = createSlice({

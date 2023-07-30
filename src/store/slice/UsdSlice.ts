@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
+const usdLocalStore = JSON.parse(localStorage.getItem('usd')!)
+
 const usd = createSlice({
     name: 'usd',
     initialState: {
-        usd: 0
+        usd: usdLocalStore || 0
     },
     reducers: {
         addUsd: (state, action) => {

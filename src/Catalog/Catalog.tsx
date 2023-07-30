@@ -15,7 +15,7 @@ const Catalog: React.FC<CatalogProps> = ({}) => {
   return (
     <section className={`${style.catalog__container} container`}>
       <div className={`${style.catalog}` }>
-        {data.products.map((elem) =>
+        {data.products.slice(0,1).map((elem) =>
           elem.products.map((product) => (
             <ProductCard
             productArr={productArr}

@@ -21,9 +21,12 @@ const productArr = createSlice({
           if(index !== -1){
             state.productArr.splice(index,1)
           }
+        },
+        clearProductArr: (state, action: PayloadAction) => {
+          state.productArr.splice(0, state.productArr.length)
         }
     }
 })
 
-export const {addProductArr, removeProductArr} = productArr.actions
+export const {addProductArr, removeProductArr, clearProductArr} = productArr.actions
 export default productArr.reducer

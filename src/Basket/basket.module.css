@@ -14,13 +14,15 @@
     gap: 20px;
 }
 
+
+
 .purchase {
     border: 1px solid black;
-    max-height: 200px;
+    height: 100%;
     border-radius: 10px;
     display: flex;
+    gap: 30px;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
     padding: 20px;
 }
@@ -32,4 +34,32 @@
 
 .info p {
     font-weight: bold;
+}
+
+.modal__container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    padding: 10px 50px;
+}
+
+.content {
+    display: flex;
+    gap: 20px;
+}
+
+.method {
+    border-radius: 10px;
+    padding: 20px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.method:hover {
+    box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.2);
+}
+
+.method.active {
+    box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.2);
 }

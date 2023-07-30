@@ -1,0 +1,20 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+
+const coin = createSlice({
+    name: 'coin',
+    initialState: {
+        coin: 0
+    },
+    reducers: {
+        addCoin: (state, action) => {
+            state.coin += action.payload;
+        },
+        removeCoin: (state, action) => {
+            state.coin -= action.payload;
+        }
+    }
+});
+
+export const { addCoin, removeCoin } = coin.actions;
+export default coin.reducer;

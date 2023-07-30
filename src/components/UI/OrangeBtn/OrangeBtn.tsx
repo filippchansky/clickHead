@@ -4,12 +4,13 @@ import style from "./orangebtn.module.css"
 interface OrangeBtnProps {
     children: React.ReactNode
     clickBtn?: MouseEventHandler<HTMLButtonElement>
+    active?: boolean
 }
 
-const OrangeBtn:React.FC<OrangeBtnProps> = ({children, clickBtn}) => {
+const OrangeBtn:React.FC<OrangeBtnProps> = ({children, clickBtn, active}) => {
     
     return (
-        <button className={style.btn} onClick={clickBtn}>
+        <button disabled={active} className={style.btn} onClick={clickBtn}>
             {children}
         </button>
     )

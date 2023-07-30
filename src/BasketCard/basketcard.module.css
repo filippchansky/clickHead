@@ -21,8 +21,15 @@
 .text {
     display: flex;
     gap: 10px;
+    max-width: 150px;
 }
 
 .text p {
     font-weight: bold;
+}
+
+.btn__delete {
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
 }

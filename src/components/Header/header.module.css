@@ -13,5 +13,7 @@
 
 .nav__link{
     color: black;
+    cursor: pointer;
 }
+
 

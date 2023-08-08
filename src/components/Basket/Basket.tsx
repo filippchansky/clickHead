@@ -53,7 +53,7 @@ const Basket: React.FC<BasketProps> = ({}) => {
       .join("")
   ); // TODO: закинуть в useEffect
 
-  console.log(finaliPrice);
+  
 
   const changeMethod = (method: string) => {
     if (method === "USD") {
